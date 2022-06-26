@@ -33,19 +33,19 @@
         <div class="u-align-center u-container-style u-expanded-width-xs u-group u-palette-1-base u-radius-10 u-shape-round u-group-1">
           <div class="u-container-layout u-container-layout-1">
             <p class="u-large-text u-text u-text-variant u-text-1">Enter a given date</p>
-            <h3 class="u-text u-text-2">DD MM YYYY</h3>
+            <h3 class="u-text u-text-2">03 05 2022</h3>
           </div>
         </div>
         <div class="u-container-style u-expanded-width-xs u-group u-group-2">
           <div class="u-container-layout u-container-layout-2">
-            <h2 class="u-subtitle u-text u-text-default u-text-3">
+            <h2 id="radioButtonsDateLabel2" class="u-subtitle u-text u-text-default u-text-3">
               <span class="u-text-palette-5-dark-3">03</span>
               <span class="u-text-palette-5-dark-3">/</span>
               <span class="u-text-palette-5-dark-3">**</span>/<span class="u-text-palette-5-light-1">****</span>
             </h2>
             <p class="u-large-text u-text u-text-default u-text-variant u-text-4">Month</p>
           
-              <div class="radioButtonsMonth">
+              <div class="radioButtonsMonth" onclick="userResult.getMonthRadioButtons()">
                 <label>
                   <input name="month" type="radio" value="1">
                   <span>1</span>
@@ -100,5 +100,8 @@
         </div>
       </div>
     </section>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
   
 </body></html>
