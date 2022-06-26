@@ -76,15 +76,30 @@ class Result {
     getDayRadioButtons(){
         /// here we need to save the day value from the radio buttons
 
-        
-        window.location.replace('Radio-buttons-month-1.html');
+
+        var page = window.location.pathname.split("/").pop();
+        if(page == 'Radio-buttons-day-1.html') {
+            window.location.replace('Radio-buttons-month-1.html');           
+        } else if (page == 'Radio-buttons-day-2.html') {
+            window.location.replace('Radio-buttons-month-2.html');
+        } else {
+            window.location.replace('Radio-buttons-month-3.html');
+        }
+
     }
 
     getMonthRadioButtons() {
         /// here we need to save the month value from the radio buttons
 
 
-        window.location.replace('Radio-buttons-year-1.html');
+        var page = window.location.pathname.split("/").pop();
+        if(page == 'Radio-buttons-month-1.html') {
+            window.location.replace('Radio-buttons-year-1.html');           
+        } else if (page == 'Radio-buttons-month-2.html') {
+            window.location.replace('Radio-buttons-year-2.html');
+        } else {
+            window.location.replace('Radio-buttons-year-3.html');
+        }
     }
 
     getYearRadioButtons() {
