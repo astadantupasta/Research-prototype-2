@@ -170,7 +170,7 @@
     margin-left: 0;
     margin-right: 0;
   }
-}.radioButtonsDay {
+}.radioButtonsMonth {
         
         display: inline-grid;
         max-width: 900px;
@@ -179,24 +179,24 @@
         grid-template-columns: repeat(10, minmax(15px, 200px));
     }
     @media only screen and (max-width: 680px) {
-		 .radioButtonsDay {
+		 .radioButtonsMonth {
     	justify-content: center;
     	padding: 5px;
 		grid-auto-rows: 15px;
 		grid-template-columns: repeat(7, minmax(15px, 200px));
 	}
-		.radioButtonsDay span {
+		.radioButtonsMonth span {
    	 	padding: 20px;
     	font-size: 0.7em;
 	}
    }
-    .radioButtonsDay input {
+    .radioButtonsMonth input {
         max-width: 250px;
         position: fixed;
         opacity: 0;
         pointer-events: none;
     }
-    .radioButtonsDay span {
+    .radioButtonsMonth span {
         border-radius: 5px;
         display: flex;
         justify-content: center;
@@ -209,14 +209,14 @@
         background: #dcdcdc;
         transition: background .2s ease-in-out;
     }
-    .radioButtonsDay input:checked + span {
+    .radioButtonsMonth input:checked + span {
         outline: black auto 1px;
         background: transparent;
     }
-    .radioButtonsDay input:focus + span {
+    .radioButtonsMonth input:focus + span {
         outline: -webkit-focus-ring-color auto 1px;
     }
-    .radioButtonsDay span:hover {
+    .radioButtonsMonth span:hover {
         background: #f1f1f1;
         outline: lightgrey auto 0.5px;
     } 
