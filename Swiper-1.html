@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="​Education for health and well-being, ​Essential Study Tips for Effective Learning, ​How to Learn Tech Skills, ​The Institute for Effective Education, ​An Effective Education, ​Education for health and well-being">
+    <meta name="description" content="">
+    <title>Swiper-1</title>
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 4.13.1, nicepage.com">
+
+
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link rel="stylesheet" href="rotating-slider.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="rotating-slider.js"></script>
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Site1"
+}</script>
+    <meta name="theme-color" content="#ab4ec7">
+    <meta property="og:title" content="Radio buttons-year-1">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+  </head>
+  <body class="u-body u-xl-mode"><header class="u-clearfix u-header u-header" id="sec-06d7"><div class="u-clearfix u-sheet u-sheet-1"></div></header> 
+    <section class="u-align-center-sm u-align-center-xs u-clearfix u-section-1" id="sec-0600">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-list u-list-1">
+          <div class="u-repeater u-repeater-1"></div>
+        </div>
+        <div class="u-align-center u-container-style u-group u-palette-1-base u-radius-10 u-shape-round u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <p class="u-large-text u-text u-text-variant u-text-1">Enter a given date</p>
+            <h3 class="u-text u-text-2">05 03 2022</h3>
+          </div>
+        </div>
+        <div class="u-container-style u-group u-group-2" id="swiperContainer">
+          <div class="u-container-layout u-valign-bottom u-container-layout-2">
+
+            <div class="demo">
+              <h1>Day</h1>
+              <h2 id="rotating-slider1"/>
+            </div>
+            <div class="demo">
+              <h1>Month</h1>
+              <h2 id="rotating-slider2"/>
+            </div>
+            <div class="demo">
+              <h1>Year</h1>
+              <h2 id="rotating-slider3"/>
+            </div>
+          </div>
+
+            <script>
+              RotatingSlider($("#rotating-slider1"), {min: 1, max: 31, step: 1}, 15).setChangeCallback(function (val) {
+                console.log(val)
+              });
+              RotatingSlider($("#rotating-slider2"), {min: 1, max: 12, step: 1}, 6).setChangeCallback(function (val) {
+                console.log(val)
+              });
+              RotatingSlider($("#rotating-slider3"), {min: 1900, max: 2022, step: 1}, 2000).setChangeCallback(function (val) {
+                console.log(val)
+              });
+            </script>
+
+            <a href="Swiper-2.html" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1">Next</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+  
+</body></html>
