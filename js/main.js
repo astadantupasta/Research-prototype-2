@@ -1,16 +1,21 @@
 class Result {
 
     userId = '';
+    userAge = 0;
+    userGender = '';
     times = [];
-    answer1 = '';
-    answer2 = '';
+    elementTracking = [];
+    dates = [];
+    answers = [];
 
     constructor() {
 
-        this.userId = '';
+        this.userAge = 0;
+        this.userGender = '';
         this.times = [];
-        this.answer1 = '';
-        this.answer2 = '';
+        this.elementTracking = [];
+        this.dates = [];
+        this.asnwers = [];
 
         if(localStorage.getItem('currentUserId') == null){
             this.userId = 'temp'
@@ -33,48 +38,48 @@ class Result {
         console.log(this.userId);
     }
 
-    startTheExperiment() {
+    saveUserData(){
+        // -- to get somehow a session id and set it to user id :))
+        // -- will come back later
 
-        userResult.setUserId(document.getElementById("userNameInput").value);
+        // var storage = window.top.sessionStorage;
+        // var sessionId = storage.getItem("UNEXPECTED_TERMINATION");
+        // console.log(sessionId);
+        // userResult.setUserId(sessionId);
+        // console.log(userResult.userId);
+        // localStorage.setItem('userId', this.userId);
 
-        console.log(userResult.userId);
+        userResult.userAge = parseInt(document.getElementById("ageInput").value);
+        userResult.userGender = document.getElementById("genderInput").value;
 
-        this.times.push(Date.now())
+        localStorage.setItem('userAge', this.userAge);
+        localStorage.setItem('userGender', this.userGender);
+    }
+
+    saveTheCurrentTime(elementTracker) {
+
+        var currentTime = Date.now();
+        this.times = currentTime;
+        this.elementTracking = elementTracker;
 
         localStorage.setItem('times', this.times);
-
-        window.location.replace('1st-calendar-1.html');
-
+        localStorage.setItem('elementTraking', this.elementTracking);
+        console.log(currentTime);
+        console.log(this.elementTracking);
     }
 
-    finishExperiment1() {
+    saveTheEnteredDate_DropDown() {
+        var date = document.getElementById('dayInput').value;
+        date += '/' + document.getElementById('monthInput').value;
+        date += '/' + document.getElementById('yearInput').value;
 
-        var timesTemp = localStorage.getItem('times');
-        var currentTime = Date.now();
-        var timeTaken = currentTime - timesTemp;
-        localStorage.setItem('times', timesTemp);
-
-        var elem = document.createElement('p');
-
-        elem.innerHTML = "The time taken in milliseconds is " + String(timeTaken)
-
-        localStorage.setItem('timeDropdown', String(timeTaken))
-
-        document.body.appendChild(elem);
-
-        this.times.push(currentTime)
-
-        this.startExperiment2();
-
-        window.location.replace('2nd-calendar-1.html');
+        this.dates = date;
+        localStorage.setItem('dates', this.dates);
+        console.log(this.dates);
     }
 
-    startExperiment2(){
-        console.log("Exp2")
-    }
-
-    getDayRadioButtons(){
-        /// here we need to save the day value from the radio buttons
+    saveTheEnteredDate_RadioButtonsDay() {
+        localStorage.setItem('day', document.querySelector('input[name="day"]:checked').value);
 
 
         var page = window.location.pathname.split("/").pop();
@@ -85,11 +90,10 @@ class Result {
         } else {
             window.location.replace('Radio-buttons-month-3.html');
         }
-
     }
 
-    getMonthRadioButtons() {
-        /// here we need to save the month value from the radio buttons
+    saveTheEnteredDate_RadioButtonsMonth() {
+        localStorage.setItem('month', document.querySelector('input[name="month"]:checked').value);
 
 
         var page = window.location.pathname.split("/").pop();
@@ -102,30 +106,61 @@ class Result {
         }
     }
 
-    getYearRadioButtons() {
-        /// here we need to save the year value from the radio buttons
+    saveTheEnteredDate_RadioButtonsYear() {
+        var date = localStorage.getItem('day') + '/' + 
+            localStorage.getItem('month') + '/' + document.querySelector('input[name="year"]:checked').value;
 
-        /// change the label indicating the date entered
+        this.dates = date;
+        console.log(this.dates);
+    }
+
+    changeTheEnteredDateLabel_RadioButtons(){
         var value = document.querySelector('input[name="year"]:checked').value;
         document.getElementById('radioButtonsDateLabel').innerHTML = '03/05/' + value;
     }
+    
 
-    get userId() { return this.userId; }
-    get times( ) { return this.times; }
-    get answer1() {  return this.answer1; }
-    get answer2() { return this.answer2; }
+    finishExperiment1() {
 
-    set userId( newUserId ) {
-        newUserId = newUserId?.trim() || '';
-        if ( newUserId === '' ) {
-            throw 'The userId cannot be empty';
-        }
-        this.userId = newUserId;
+        var timesTemp = localStorage.getItem('times');
+        var currentTime = Date.now();
+        var timeTaken = currentTime - timesTemp;
+        localStorage.setItem('times', timesTemp);
+
+        var elem = document.createElement('p');
+
+        elem.innerHTML = "The time taken in milliseconds is " + String(timeTaken)
+
+        localStorage.setItem('timeDropdown', String(timeTaken));
+
+        document.body.appendChild(elem);
+
+        this.times.push(currentTime);
+
+        this.startExperiment2();
+
+        window.location.replace('2nd-calendar-1.html');
     }
 
+    startExperiment2(){
+        console.log("Exp2");
+    }
+
+    get userId() { return this.userId; }
+    get userAge() { return this.userAge; }
+    get userGender() { return this.userGender; }
+    get times( ) { return this.times; }
+    get elementTracking() { return this.elementTracking; }
+    get dates() { return this.dates; }
+    get answers() {  return this.answers; }
+
+    set userId( newUserId ) { this.userId = newUserId; }
+    set userAge( newUserAge ) { this.userAge = newUserAge; }
+    set userGender( newUserGender ) { this.userGender = newUserGender; }
     set times( timeValue ) { this.times.push(timeValue); }
-    set answer1( newAnswer1 ) { this.answer1 = newAnswer1; }
-    set answer2( newAnswer2 ) { this.answer2 = newAnswer2; }
+    set elementTracking( elementValue ) { this.elementTracking.push(elementValue); }
+    set dates( newDate ) { this.dates.push(newDate); } 
+    set answers( newAnswer ) { this.answers.push(newAnswer); }
 
 }
 

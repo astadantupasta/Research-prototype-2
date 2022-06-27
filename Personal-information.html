@@ -27,9 +27,9 @@
         <div class="u-expanded-width-xs u-form u-radius-10 u-white u-form-1">
           <form action="#" method="POST" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" source="email" name="form" style="padding: 28px;">
             <div class="u-form-group u-form-select u-form-group-1">
-              <label for="select-6c70" class="u-label">Age</label>
+              <label for="ageInput" class="u-label">Age</label>
               <div class="u-form-select-wrapper">
-                <select id="select-6c70" name="ageInput" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
+                <select id="ageInput" name="ageInput" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
                   <option value="5">5</option>
                   <option value="6">6</option>
                   <option value="7">7</option>
@@ -123,7 +123,7 @@
             <div class="u-form-group u-form-select u-form-group-2">
               <label for="select-62ae" class="u-label">Gender</label>
               <div class="u-form-select-wrapper">
-                <select id="select-62ae" name="genderInput" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
+                <select id="genderInput" name="genderInput" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
                   <option value="Female">Female</option>
                   <option value="Male">Male</option>
                   <option value="Other">Other</option>
@@ -133,7 +133,7 @@
             </div>
             
             <div class="u-align-right u-form-group">
-              <a href="Calendars-exmplanation.html" data-page-id="40213125" class="u-active-palette-3-base u-border-5 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-palette-1-base u-radius-50 u-btn-1">Next</a>
+              <a href="Calendars-exmplanation.html" data-page-id="40213125" class="u-active-palette-3-base u-border-5 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-palette-1-base u-radius-50 u-btn-1" onclick="userResult.saveUserData()">Next</a>
               <input type="submit" value="submit" class="u-form-control-hidden">
             </div>
             <input type="hidden" value="" name="recaptchaResponse">
@@ -142,5 +142,8 @@
         <h3 class="u-align-center-xl u-align-left-lg u-align-left-md u-align-left-sm u-align-left-xs u-text u-text-default u-text-1">Personal information</h3>
       </div>
     </section>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
   
 </body></html>

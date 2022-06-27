@@ -37,9 +37,9 @@
         <div class="u-form u-radius-10 u-white u-form-1">
           <form action="#" method="POST" class="u-clearfix u-form-spacing-15 u-form-vertical u-inner-form" source="email" name="form" style="padding: 28px;">
             <div class="u-form-group u-form-select u-form-group-1">
-              <label for="select-beab" class="u-label">Day</label>
+              <label for="dayInput" class="u-label">Day</label>
               <div class="u-form-select-wrapper">
-                <select id="select-beab" name="dayDropDown" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
+                <select id="dayInput" name="dayDropDown" onclick="userResult.saveTheCurrentTime('III drop-down-day')" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -76,9 +76,9 @@
               </div>
             </div>
             <div class="u-form-group u-form-select u-form-group-2">
-              <label for="select-0514" class="u-label">Month</label>
+              <label for="monthInput" class="u-label">Month</label>
               <div class="u-form-select-wrapper">
-                <select id="select-0514" name="monthDropDown" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
+                <select id="monthInput" name="monthDropDown" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -96,9 +96,9 @@
               </div>
             </div>
             <div class="u-form-group u-form-select u-form-group-3">
-              <label for="select-310a" class="u-label">Year</label>
+              <label for="yearInput" class="u-label">Year</label>
               <div class="u-form-select-wrapper">
-                <select id="select-310a" name="yearDropDown" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
+                <select id="yearInput" name="yearDropDown" onclick="userResult.saveTheCurrentTime('III drop-down-year')" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
                   <option value="2022">2022</option>
                   <option value="2021">2021</option>
                   <option value="2020">2020</option>
@@ -207,7 +207,7 @@
               </div>
             </div>
             <div class="u-align-right u-form-group">
-              <a href="Radio-buttons-day-1.html" class="u-active-palette-3-base u-border-5 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-palette-1-base u-radius-50 u-btn-1">Next</a>
+              <a href="Radio-buttons-day-1.html" onclick="userResult.saveTheEnteredDate_DropDown()" class="u-active-palette-3-base u-border-5 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-palette-1-base u-radius-50 u-btn-1">Next</a>
               <input type="submit" value="submit" class="u-form-control-hidden">
             </div>
             <input type="hidden" value="" name="recaptchaResponse">
@@ -215,5 +215,8 @@
         </div>
       </div>
     </section>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
   
 </body></html>
