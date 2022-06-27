@@ -34,9 +34,9 @@ class Result {
         localStorage.setItem('currentUserId', newUserId);
     }
 
-    printUserId(){
-        console.log(this.userId);
-    }
+    // printUserId(){
+    //     console.log(this.userId);
+    // }
 
     saveUserData(){
         // -- to get somehow a session id and set it to user id :))
@@ -79,8 +79,15 @@ class Result {
     }
 
     saveTheEnteredDate_RadioButtonsDay() {
-        localStorage.setItem('day', document.querySelector('input[name="day"]:checked').value);
-
+        try{
+            localStorage.setItem('day', document.querySelector('input[name="day"]:checked').value);
+        }
+        catch(e){
+            if(e instanceof TypeError){
+            } else {
+                console.log(e);
+            }
+        }
 
         var page = window.location.pathname.split("/").pop();
         if(page == 'Radio-buttons-day-1.html') {
@@ -93,7 +100,16 @@ class Result {
     }
 
     saveTheEnteredDate_RadioButtonsMonth() {
-        localStorage.setItem('month', document.querySelector('input[name="month"]:checked').value);
+        try{
+            localStorage.setItem('month', document.querySelector('input[name="month"]:checked').value);
+        }
+        catch(e){
+            if(e instanceof TypeError){
+
+            }else{
+                console.log(e);
+            }
+        }
 
 
         var page = window.location.pathname.split("/").pop();
@@ -107,44 +123,93 @@ class Result {
     }
 
     saveTheEnteredDate_RadioButtonsYear() {
-        var date = localStorage.getItem('day') + '/' + 
+        var date = '';
+        try{
+            date = localStorage.getItem('day') + '/' + 
             localStorage.getItem('month') + '/' + document.querySelector('input[name="year"]:checked').value;
+        }
+        catch(e){
+            if(e instanceof TypeError){
+
+            }else{
+                console.log(e);
+            }
+        }
+        
 
         this.dates = date;
         console.log(this.dates);
     }
 
     changeTheEnteredDateLabel_RadioButtons(){
-        var value = document.querySelector('input[name="year"]:checked').value;
-        document.getElementById('radioButtonsDateLabel').innerHTML = '03/05/' + value;
+        try{
+            var value = document.querySelector('input[name="year"]:checked').value;
+            document.getElementById('radioButtonsDateLabel').innerHTML = '03/05/' + value;            
+        }
+        catch(e){
+            if(e instanceof TypeError){
+
+            }else
+            {
+                console.log(e);
+            }
+        }
+
+    }
+
+    saveTheAnswers() {
+        var answer1, answer2;
+        try {
+            answer1 = document.querySelector('input[name="comfortable"]:checked').value;
+        }
+        catch(e) {
+            if(e instanceof TypeError) {
+                answer1 = 'NotEvaluated';
+            }
+        }
+
+        try {
+            answer2 = document.querySelector('input[name="quick"]:checked').value;
+        }
+        catch(e) {
+            if(e instanceof TypeError) {
+                answer2 = 'notEvaluated';
+            }
+        }
+
+        this.answers = answer1;
+        this.answers = answer2;
+        
+        console.log(answer1);
+        console.log(answer2);
     }
     
 
-    finishExperiment1() {
+    // finishExperiment1() {
 
-        var timesTemp = localStorage.getItem('times');
-        var currentTime = Date.now();
-        var timeTaken = currentTime - timesTemp;
-        localStorage.setItem('times', timesTemp);
+    //     var timesTemp = localStorage.getItem('times');
+    //     var currentTime = Date.now();
+    //     var timeTaken = currentTime - timesTemp;
+    //     localStorage.setItem('times', timesTemp);
 
-        var elem = document.createElement('p');
+    //     var elem = document.createElement('p');
 
-        elem.innerHTML = "The time taken in milliseconds is " + String(timeTaken)
+    //     elem.innerHTML = "The time taken in milliseconds is " + String(timeTaken)
 
-        localStorage.setItem('timeDropdown', String(timeTaken));
+    //     localStorage.setItem('timeDropdown', String(timeTaken));
 
-        document.body.appendChild(elem);
+    //     document.body.appendChild(elem);
 
-        this.times.push(currentTime);
+    //     this.times.push(currentTime);
 
-        this.startExperiment2();
+    //     this.startExperiment2();
 
-        window.location.replace('2nd-calendar-1.html');
-    }
+    //     window.location.replace('2nd-calendar-1.html');
+    // }
 
-    startExperiment2(){
-        console.log("Exp2");
-    }
+    // startExperiment2(){
+    //     console.log("Exp2");
+    // }
 
     get userId() { return this.userId; }
     get userAge() { return this.userAge; }
