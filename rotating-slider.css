@@ -147,3 +147,9 @@ h2:not(.u-subtitle)
 #swiperContainer{
     display:grid;
 }
+
+.u-section-1 .u-text-1 {
+    font-style: italic;
+    font-size: 1.25rem;
+    margin: 0 150px 0 0;
+}
