@@ -39,21 +39,14 @@ class Result {
     // }
 
     saveUserData(){
-        // -- to get somehow a session id and set it to user id :))
-        // -- will come back later
+        this.userId = 'U' + Date.now();
 
-        // var storage = window.top.sessionStorage;
-        // var sessionId = storage.getItem("UNEXPECTED_TERMINATION");
-        // console.log(sessionId);
-        // userResult.setUserId(sessionId);
-        // console.log(userResult.userId);
-        // localStorage.setItem('userId', this.userId);
-
-        userResult.userAge = parseInt(document.getElementById("ageInput").value);
-        userResult.userGender = document.getElementById("genderInput").value;
+        this.userAge = parseInt(document.getElementById("ageInput").value);
+        this.userGender = document.getElementById("genderInput").value;
 
         localStorage.setItem('userAge', this.userAge);
         localStorage.setItem('userGender', this.userGender);
+        localStorage.setItem('userId', this.userId);
     }
 
     saveTheCurrentTime(elementTracker) {
@@ -73,8 +66,9 @@ class Result {
         date += '/' + document.getElementById('monthInput').value;
         date += '/' + document.getElementById('yearInput').value;
 
-        this.dates = date;
-        localStorage.setItem('dates', this.dates);
+        var newDates = localStorage.getItem('dates');
+        newDates.push(date);
+        localStorage.setItem('dates', newDates);
         console.log(this.dates);
     }
 
@@ -124,7 +118,7 @@ class Result {
 
     saveTheEnteredDate_RadioButtonsYear() {
         var date = '';
-        try{
+        try {
             date = localStorage.getItem('day') + '/' + 
             localStorage.getItem('month') + '/' + document.querySelector('input[name="year"]:checked').value;
         }
@@ -138,6 +132,16 @@ class Result {
         
 
         this.dates = date;
+        console.log(this.dates);
+    }
+
+    saveTheEnteredDate_Swiper(){
+        var date = localStorage.getItem('slider_day');
+        date += '/' + localStorage.getItem('slider_month');
+        date += '/' + localStorage.getItem('slider_year');
+
+        this.dates = date;
+        localStorage.setItem('dates', this.dates);
         console.log(this.dates);
     }
 
@@ -183,33 +187,17 @@ class Result {
         console.log(answer1);
         console.log(answer2);
     }
-    
 
-    // finishExperiment1() {
-
-    //     var timesTemp = localStorage.getItem('times');
-    //     var currentTime = Date.now();
-    //     var timeTaken = currentTime - timesTemp;
-    //     localStorage.setItem('times', timesTemp);
-
-    //     var elem = document.createElement('p');
-
-    //     elem.innerHTML = "The time taken in milliseconds is " + String(timeTaken)
-
-    //     localStorage.setItem('timeDropdown', String(timeTaken));
-
-    //     document.body.appendChild(elem);
-
-    //     this.times.push(currentTime);
-
-    //     this.startExperiment2();
-
-    //     window.location.replace('2nd-calendar-1.html');
-    // }
-
-    // startExperiment2(){
-    //     console.log("Exp2");
-    // }
+    printAllTheData() {
+        console.log('All the data:');
+        console.log(this.userId);
+        console.log(this.userAge);
+        console.log(this.userGender);
+        console.log(this.times);
+        console.log(this.elementTracking);
+        console.log(this.dates);
+        console.log(this.answers);
+    }
 
     get userId() { return this.userId; }
     get userAge() { return this.userAge; }
@@ -230,13 +218,6 @@ class Result {
 }
 
 var userResult = new Result();
-
-// if(localStorage.getItem('currentUser') == null){
-//     userResult = new Result();
-//     localStorage.setItem('currentUser', userResult);
-// } else {
-//     userResult = localStorage.getItem('currentUser');
-// }
 
 
 

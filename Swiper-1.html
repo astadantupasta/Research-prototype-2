@@ -43,31 +43,34 @@
 
             <div class="demo">
               <h1>Day</h1>
-              <h2 id="rotating-slider1"/>
+              <h2 id="rotating-slider1" onclick="userResult.saveTheCurrentTime('I swipper-day')"/>
             </div>
             <div class="demo">
               <h1>Month</h1>
-              <h2 id="rotating-slider2"/>
+              <h2 id="rotating-slider2" onclick="userResult.saveTheCurrentTime('I swipper-month')"/>
             </div>
             <div class="demo">
               <h1>Year</h1>
-              <h2 id="rotating-slider3"/>
+              <h2 id="rotating-slider3" onclick="userResult.saveTheCurrentTime('I swipper-year')"/>
             </div>
           </div>
 
             <script>
               RotatingSlider($("#rotating-slider1"), {min: 1, max: 31, step: 1}, 15).setChangeCallback(function (val) {
-                console.log(val)
+                console.log(val);
+                localStorage.setItem('slider_day', val);
               });
               RotatingSlider($("#rotating-slider2"), {min: 1, max: 12, step: 1}, 6).setChangeCallback(function (val) {
-                console.log(val)
+                console.log(val);
+                localStorage.setItem('slider_month', val);
               });
               RotatingSlider($("#rotating-slider3"), {min: 1900, max: 2022, step: 1}, 2000).setChangeCallback(function (val) {
-                console.log(val)
+                console.log(val);
+                localStorage.setItem('slider_year', val);
               });
             </script>
 
-            <a href="Swiper-2.html" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1">NEXT</a>
+            <a href="Swiper-2.html" onclick="userResult.saveTheEnteredDate_Swiper()" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1">NEXT</a>
           </div>
         </div>
       </div>
