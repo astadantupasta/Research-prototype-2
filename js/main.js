@@ -34,10 +34,6 @@ class Result {
         localStorage.setItem('currentUserId', newUserId);
     }
 
-    // printUserId(){
-    //     console.log(this.userId);
-    // }
-
     saveUserData(){
         this.userId = 'U' + Date.now();
 
