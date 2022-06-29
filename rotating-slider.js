@@ -7,8 +7,8 @@
         this.MAX_SPEED_AT_STEPS = 30;
         this.STEPS_LEVEL = {
             NO_ACTION_DISTANCE: 0.01,
-            ONE_STEP_DISTANCE: 0.05,
-            MIN_SPEED: 0.0055,
+            ONE_STEP_DISTANCE: 0.03,
+            MIN_SPEED: 0.0030,
             MAX_SPEED: 0.0125
         };
         this.POSITION_CLASSES = [
