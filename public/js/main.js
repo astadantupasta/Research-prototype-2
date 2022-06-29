@@ -1,4 +1,6 @@
 import { getDatabase, ref, set } from "firebase/database";
+import {collection, getFirestore, addDoc } from "firebase/firestore";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
 
 function writeUserData(userId, name, email, imageUrl) {
     const db = getDatabase();
@@ -9,10 +11,24 @@ function writeUserData(userId, name, email, imageUrl) {
     });
 }
 
+class UserData{
+
+    constructor() {
+    }
+}
+
 class Result {
 
 
-    constructor() {
+    constructor(userId, userAge, userGender, times, elementTracking, dates, answers) {
+
+        this.userId = userId;
+        this.userAge = userAge;
+        this.userGender = userGender;
+        this.times = times;
+        this.elementTracking = elementTracking;
+        this.dates = dates;
+        this.answers = answers;
     }
 
     initialiseData() {
@@ -184,11 +200,27 @@ class Result {
         console.log(this.dates);
         console.log(this.answers);
 
-        const database = getDatabase();
+        const firebaseConfig = {
 
-        set(ref(database, 'users/' + this.userId), {
-            age: this.userAge,
-            gender: this.userGender
+            apiKey: "AIzaSyCCSg686MIwY4jJz7UNFx6PMNZ_LwOG7zk",
+            authDomain: "research-prototype-22.firebaseapp.com",
+            projectId: "research-prototype-22",
+            storageBucket: "research-prototype-22.appspot.com",
+            messagingSenderId: "551766409520",
+            appId: "1:551766409520:web:493f25acf035234a9d88f5"
+
+        };
+
+        const app = initializeApp(firebaseConfig);
+
+        const database = getFirestore(app);
+
+        const dataCollection = collection(database, "experimentData");
+
+        const user = new UserData(this.userId, this.userAge, this.userGender, this.times, this.elementTracking, this.dates, this.answers)
+
+        addDoc(dataCollection, {
+            ...user
         });
 
     }
