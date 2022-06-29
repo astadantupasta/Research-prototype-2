@@ -13,13 +13,6 @@ function writeUserData(userId, name, email, imageUrl) {
 
 class UserData{
 
-    constructor() {
-    }
-}
-
-class Result {
-
-
     constructor(userId, userAge, userGender, times, elementTracking, dates, answers) {
 
         this.userId = userId;
@@ -30,6 +23,14 @@ class Result {
         this.dates = dates;
         this.answers = answers;
     }
+}
+
+class Result {
+
+    constructor() {
+
+    }
+
 
     initialiseData() {
         localStorage.clear();
