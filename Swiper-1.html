@@ -43,15 +43,15 @@
 
             <div class="demo">
               <h1>Day</h1>
-              <h2 id="rotating-slider1" onclick="userResult.saveTheCurrentTime('I swipper-day')"/>
+              <h2 id="rotating-slider1"/>
             </div>
             <div class="demo">
               <h1>Month</h1>
-              <h2 id="rotating-slider2" onclick="userResult.saveTheCurrentTime('I swipper-month')"/>
+              <h2 id="rotating-slider2"/>
             </div>
             <div class="demo">
               <h1>Year</h1>
-              <h2 id="rotating-slider3" onclick="userResult.saveTheCurrentTime('I swipper-year')"/>
+              <h2 id="rotating-slider3"/>
             </div>
           </div>
 
@@ -59,17 +59,23 @@
               RotatingSlider($("#rotating-slider1"), {min: 1, max: 31, step: 1}, 15).setChangeCallback(function (val) {
                 console.log(val);
                 localStorage.setItem('slider_day', val);
-                //userResult.enableLink(document.getElementById('swiper-I-button'));
+
+                userResult.enableLink(document.getElementById('swiper-I-button'));
+                userResult.saveTheCurrentTimeSwiper('I swipper-day',val,5)
               });
               RotatingSlider($("#rotating-slider2"), {min: 1, max: 12, step: 1}, 6).setChangeCallback(function (val) {
                 console.log(val);
                 localStorage.setItem('slider_month', val);
-                //userResult.enableLink(document.getElementById('swiper-I-button'));
+
+                userResult.enableLink(document.getElementById('swiper-I-button'));
+                userResult.saveTheCurrentTimeSwiper('I swipper-month',val,3)
               });
               RotatingSlider($("#rotating-slider3"), {min: 1900, max: 2022, step: 1}, 2000).setChangeCallback(function (val) {
                 console.log(val);
                 localStorage.setItem('slider_year', val);
-                //userResult.enableLink(document.getElementById('swiper-I-button'));
+
+                userResult.enableLink(document.getElementById('swiper-I-button'));
+                userResult.saveTheCurrentTimeSwiper('I swipper-year',val,2022)
               });
             </script>
 

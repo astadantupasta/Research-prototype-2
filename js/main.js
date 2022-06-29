@@ -26,6 +26,18 @@ class Result {
         this.elementTracking = elementTracker;
     }
 
+    saveTheCurrentTimeSwiper(elementTracker, value, correctValue) {
+
+        if(value == correctValue) {
+            this.times = Date.now();
+            this.elementTracking = elementTracker;
+        } else {
+            this.times = Date.now();
+            this.elementTracking = 'INVALID:' + elementTracker;
+        }
+
+    }
+
     saveTheEnteredDate_DropDown() {
         var date = document.getElementById('dayInput').value;
         date += '/' + document.getElementById('monthInput').value;

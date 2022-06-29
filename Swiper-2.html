@@ -56,18 +56,27 @@
           </div>
 
           <script>
-            RotatingSlider($("#rotating-slider1"), {min: 1, max: 31, step: 1}, 15).setChangeCallback(function (val) {
-              console.log(val);
-              localStorage.setItem('slider_day', val);
-            });
-            RotatingSlider($("#rotating-slider2"), {min: 1, max: 12, step: 1}, 6).setChangeCallback(function (val) {
-              console.log(val);
-              localStorage.setItem('slider_month', val);
-            });
-            RotatingSlider($("#rotating-slider3"), {min: 1900, max: 2022, step: 1}, 2000).setChangeCallback(function (val) {
-              console.log(val);
-              localStorage.setItem('slider_year', val);
-            });
+              RotatingSlider($("#rotating-slider1"), {min: 1, max: 31, step: 1}, 15).setChangeCallback(function (val) {
+                  console.log(val);
+                  localStorage.setItem('slider_day', val);
+
+                  userResult.enableLink(document.getElementById('swiper-II-button'));
+                  userResult.saveTheCurrentTimeSwiper('II swipper-day',val,16)
+              });
+              RotatingSlider($("#rotating-slider2"), {min: 1, max: 12, step: 1}, 6).setChangeCallback(function (val) {
+                  console.log(val);
+                  localStorage.setItem('slider_month', val);
+
+                  userResult.enableLink(document.getElementById('swiper-II-button'));
+                  userResult.saveTheCurrentTimeSwiper('II swipper-month',val,5)
+              });
+              RotatingSlider($("#rotating-slider3"), {min: 1900, max: 2022, step: 1}, 2000).setChangeCallback(function (val) {
+                  console.log(val);
+                  localStorage.setItem('slider_year', val);
+
+                  userResult.enableLink(document.getElementById('swiper-II-button'));
+                  userResult.saveTheCurrentTimeSwiper('II swipper-year',val,1998)
+              });
           </script>
 
             <a id="swiper-II-button" aria-disabled="true" href="Swiper-3.html" onclick="userResult.saveTheEnteredDate_Swiper()" class="bold u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-palette-1-base u-hover-palette-3-base u-palette-1-base">NEXT</a>
