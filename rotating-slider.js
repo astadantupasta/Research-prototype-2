@@ -4,7 +4,7 @@
         this.ACCURACY = 0.501;
         this.MIN_STEP_INTERVAL = 10;
         this.MAX_STEP_INTERVAL = 500;
-        this.MAX_SPEED_AT_STEPS = 500;
+        this.MAX_SPEED_AT_STEPS = 300;
         this.STEPS_LEVEL = {
             NO_ACTION_DISTANCE: 0.01,
             ONE_STEP_DISTANCE: 0.05,
