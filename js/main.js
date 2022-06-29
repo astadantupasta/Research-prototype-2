@@ -2,7 +2,10 @@ class Result {
 
 
     constructor() {
+    }
 
+    initialiseData() {
+        localStorage.clear();
         localStorage.setItem('userAge', 0);
         localStorage.setItem('userGender', '');
         localStorage.setItem('times', ['']);
@@ -15,23 +18,12 @@ class Result {
         this.userAge = parseInt(document.getElementById("ageInput").value);
         this.userGender = document.getElementById("genderInput").value;
         this.userId = 'U' + Date.now();
-
-      //  localStorage.setItem('userAge', parseInt(document.getElementById("ageInput").value));
-      //  localStorage.setItem('userGender', document.getElementById("genderInput").value);
-      //  localStorage.setItem('userId', 'U' + Date.now());
     }
 
     saveTheCurrentTime(elementTracker) {
 
         this.times = Date.now();
         this.elementTracking = elementTracker;
-
-        // var currentTime = Date.now();
-        // var newTimes = localStorage.getItem('times');
-        // newTimes.push(currentTime);
-
-        // var newElementTracker = localStorage.getItem('elementTracking');
-        // newElementTracker.push(elementTracker);
     }
 
     saveTheEnteredDate_DropDown() {
@@ -40,11 +32,6 @@ class Result {
         date += '/' + document.getElementById('yearInput').value;
 
         this.dates = date;
-
-        // var newDates = localStorage.getItem('dates');
-        // newDates.push(date);
-        // localStorage.setItem('dates', newDates);
-        // console.log(date);
     }
 
     saveTheEnteredDate_RadioButtonsDay() {
@@ -106,11 +93,6 @@ class Result {
                 console.log(e);
             }
         }
-        
-        // var newDates = localStorage.getItem('dates');
-        // newDates.push(date);
-        // localStorage.setItem('dates', newDates);
-        // console.log(date);
     }
 
     saveTheEnteredDate_Swiper(){
@@ -119,11 +101,6 @@ class Result {
         date += '/' + localStorage.getItem('slider_year');
 
         this.dates = date;
-
-        // var newDates = localStorage.getItem('dates');
-        // newDates.push(date);
-        // localStorage.setItem('dates', newDates);
-        // console.log(date);
     }
 
     changeTheEnteredDateLabel_RadioButtons(){
@@ -164,9 +141,6 @@ class Result {
         
         this.answers = answer1;
         this.answers = answer2;
-        
-        // console.log(answer1);
-        // console.log(answer2);
     }
 
     printAllTheData() {
@@ -191,49 +165,43 @@ class Result {
     set userId( newUserId ) { localStorage.setItem('userId', newUserId); console.log(newUserId);}
     set userAge( newUserAge ) { localStorage.setItem('userAge', newUserAge); console.log(newUserAge); }
     set userGender( newUserGender ) { localStorage.setItem('userGender', newUserGender); console.log(newUserGender); }
+
     set times( timeValue ) { 
         var newTimes = this.times;
-        if(newTimes == ''){
-            newTimes = [timeValue];
-        }
-        else {
-            newTimes.push(timeValue);
-        }
+        if(newTimes == '')
+            newTimes = timeValue;
+        else
+            newTimes += ',' + timeValue;
         localStorage.setItem('times', newTimes);
         console.log(timeValue);
      }
+
     set elementTracking( elementValue ) { 
         var newElements = this.elementTracking;
-        if(newElements == '') {
-            newElements = [elementValue];
-        } 
-        else {
-            newElements.push(elementValue);
-        }
+        if(newElements == '')
+            newElements = elementValue;
+        else
+            newElements += ',' + elementValue;
         localStorage.setItem('elementTracking', newElements);
         console.log(elementValue);
     }
+
     set dates( newDate ) { 
-        var newDates = [];
-        newDates.concat(JSON.parse(this.dates));
-        
-        if(newDates == '') {
-             newDates = [newDate];           
-        }
-        else {
-            newDates.concat(newDate);            
-        }
-        localStorage.setItem('dates', JSON.stringify(newDates));
+        var newDates = this.dates;
+        if(newDates == '')
+            newDates = newDate;
+        else
+            newDates += ',' + newDate;
+        localStorage.setItem('dates', newDates);
         console.log(newDate);
     } 
+
     set answers( newAnswer ) { 
-        var newAnswers = this.newAnswer;
-        if(newAnswers == ''){
-            newAnswers = [newAnswer];
-        }
-        else {
-            newAnswers.push(newAnswer);
-        }
+        var newAnswers = this.answers;
+        if(newAnswers == '')
+            newAnswers = newAnswer;
+        else
+            newAnswers += ',' + newAnswer;
         localStorage.setItem('answers', newAnswers);
         console.log(newAnswer);
     }
