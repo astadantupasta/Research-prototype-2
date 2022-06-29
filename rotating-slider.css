@@ -1,3 +1,7 @@
+.bold{
+    font-weight: bold;
+  }
+
 input[type='number'].rotating-slider-input {
     -moz-appearance: textfield;
 }
