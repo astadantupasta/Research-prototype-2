@@ -1,3 +1,14 @@
+import { getDatabase, ref, set } from "firebase/database";
+
+function writeUserData(userId, name, email, imageUrl) {
+    const db = getDatabase();
+    set(ref(db, 'users/' + userId), {
+        username: name,
+        email: email,
+        profile_picture : imageUrl
+    });
+}
+
 class Result {
 
 
@@ -172,6 +183,14 @@ class Result {
         console.log(this.elementTracking);
         console.log(this.dates);
         console.log(this.answers);
+
+        const database = getDatabase();
+
+        set(ref(database, 'users/' + this.userId), {
+            age: this.userAge,
+            gender: this.userGender
+        });
+
     }
 
     get userId() { return localStorage.getItem('userId'); }
