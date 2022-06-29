@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/astadantupasta/Research-prototype-2/issues"
   },
-  "homepage": "https://github.com/astadantupasta/Research-prototype-2#readme"
+  "homepage": "https://github.com/astadantupasta/Research-prototype-2#readme",
+  "dependencies": {
+    "firebase": "^9.8.4"
+  }
 }
