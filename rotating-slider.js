@@ -1,15 +1,15 @@
 (function () {
     'use strict';
     var RotatingSlider = function () {
-        this.ACCURACY = 0.001;
-        this.MIN_STEP_INTERVAL = 40;
+        this.ACCURACY = 0.501;
+        this.MIN_STEP_INTERVAL = 10;
         this.MAX_STEP_INTERVAL = 500;
-        this.MAX_SPEED_AT_STEPS = 30;
+        this.MAX_SPEED_AT_STEPS = 500;
         this.STEPS_LEVEL = {
             NO_ACTION_DISTANCE: 0.01,
-            ONE_STEP_DISTANCE: 0.15,
-            MIN_SPEED: 0.0015,
-            MAX_SPEED: 0.0125
+            ONE_STEP_DISTANCE: 0.05,
+            MIN_SPEED: 0.9000,
+            MAX_SPEED: 0.9000
         };
         this.POSITION_CLASSES = [
             'rotating-slider-left-hidden',
