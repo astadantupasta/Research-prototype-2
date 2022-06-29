@@ -39,7 +39,7 @@
             <div class="u-form-group u-form-select u-form-group-1">
               <label for="dayInput" class="u-label">Day</label>
               <div class="u-form-select-wrapper">
-                <select id="dayInput" name="dayDropDown" onclick="userResult.saveTheCurrentTime('III drop-down-day')" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
+                <select id="dayInput" name="dayDropDown" onclick="userResult.saveTheCurrentTime('III drop-down-day');userResult.enableLink(document.getElementById('drop-down-III-button'))" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -78,7 +78,7 @@
             <div class="u-form-group u-form-select u-form-group-2">
               <label for="monthInput" class="u-label">Month</label>
               <div class="u-form-select-wrapper">
-                <select id="monthInput" name="monthDropDown" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
+                <select id="monthInput" name="monthDropDown" onclick="userResult.saveTheCurrentTime('III drop-down-month');userResult.enableLink(document.getElementById('drop-down-III-button'))" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -98,7 +98,7 @@
             <div class="u-form-group u-form-select u-form-group-3">
               <label for="yearInput" class="u-label">Year</label>
               <div class="u-form-select-wrapper">
-                <select id="yearInput" name="yearDropDown" onclick="userResult.saveTheCurrentTime('III drop-down-year')" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
+                <select id="yearInput" name="yearDropDown" onclick="userResult.saveTheCurrentTime('III drop-down-year');userResult.enableLink(document.getElementById('drop-down-III-button'))" class="u-border-2 u-border-grey-5 u-grey-5 u-input u-input-rectangle u-radius-10">
                   <option value="2022">2022</option>
                   <option value="2021">2021</option>
                   <option value="2020">2020</option>
@@ -207,7 +207,7 @@
               </div>
             </div>
             <div class="u-align-right u-form-group">
-              <a href="Radio-buttons-day-1.html" onclick="userResult.saveTheEnteredDate_DropDown()" class="u-active-palette-3-base u-border-5 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-palette-1-base u-radius-50 u-btn-1">Next</a>
+              <a id="drop-down-III-button" href="Radio-buttons-day-1.html" onclick="userResult.saveTheEnteredDate_DropDown()" aria-disabled="true" class="u-active-palette-3-base u-border-5 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-palette-1-base u-btn u-btn-round u-btn-submit u-button-style u-hover-palette-3-base u-palette-1-base u-radius-50 u-btn-1">Next</a>
               <input type="submit" value="submit" class="u-form-control-hidden">
             </div>
             <input type="hidden" value="" name="recaptchaResponse">

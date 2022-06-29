@@ -143,6 +143,14 @@ class Result {
         this.answers = answer2;
     }
 
+    disableLink(link) {
+        link.setAttribute('aria-disabled', 'true');
+    }
+
+    enableLink(link) {
+        link.removeAttribute('aria-disabled');
+    }
+
     printAllTheData() {
         console.log('All the data:');
         console.log(this.userId);
