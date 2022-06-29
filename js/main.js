@@ -1,60 +1,29 @@
 class Result {
 
-    userId = '';
-    userAge = 0;
-    userGender = '';
-    times = [];
-    elementTracking = [];
-    dates = [];
-    answers = [];
 
     constructor() {
-
-        this.userAge = 0;
-        this.userGender = '';
-        this.times = [];
-        this.elementTracking = [];
-        this.dates = [];
-        this.asnwers = [];
-
-        if(localStorage.getItem('currentUserId') == null){
-            this.userId = 'temp'
-
-        } else {
-            this.setUserId(localStorage.getItem('currentUserId'));
-        }
     }
 
-    setUserId(newUserId) {
-        newUserId = newUserId?.trim() || '';
-        if ( newUserId === '' ) {
-            throw 'The userId cannot be empty';
-        }
-        this.userId = newUserId;
-        localStorage.setItem('currentUserId', newUserId);
+    initialiseData() {
+        localStorage.clear();
+        localStorage.setItem('userAge', 0);
+        localStorage.setItem('userGender', '');
+        localStorage.setItem('times', ['']);
+        localStorage.setItem('elementTracking', ['']);
+        localStorage.setItem('dates', ['']);
+        localStorage.setItem('answers', ['']);
     }
 
     saveUserData(){
-        this.userId = 'U' + Date.now();
-
         this.userAge = parseInt(document.getElementById("ageInput").value);
         this.userGender = document.getElementById("genderInput").value;
-
-        localStorage.setItem('userAge', this.userAge);
-        localStorage.setItem('userGender', this.userGender);
-        localStorage.setItem('userId', this.userId);
+        this.userId = 'U' + Date.now();
     }
 
     saveTheCurrentTime(elementTracker) {
 
-        var currentTime = Date.now();
-        this.times = currentTime;
+        this.times = Date.now();
         this.elementTracking = elementTracker;
-
-        localStorage.setItem('times', this.times);
-        localStorage.setItem('elementTraking', this.elementTracking);
-        console.log(currentTime);
-        console.log(this.elementTracking);
     }
 
     saveTheEnteredDate_DropDown() {
@@ -62,10 +31,7 @@ class Result {
         date += '/' + document.getElementById('monthInput').value;
         date += '/' + document.getElementById('yearInput').value;
 
-        var newDates = localStorage.getItem('dates');
-        newDates.push(date);
-        localStorage.setItem('dates', newDates);
-        console.log(this.dates);
+        this.dates = date;
     }
 
     saveTheEnteredDate_RadioButtonsDay() {
@@ -117,6 +83,8 @@ class Result {
         try {
             date = localStorage.getItem('day') + '/' + 
             localStorage.getItem('month') + '/' + document.querySelector('input[name="year"]:checked').value;
+
+            this.dates = date;
         }
         catch(e){
             if(e instanceof TypeError){
@@ -125,10 +93,6 @@ class Result {
                 console.log(e);
             }
         }
-        
-
-        this.dates = date;
-        console.log(this.dates);
     }
 
     saveTheEnteredDate_Swiper(){
@@ -137,8 +101,6 @@ class Result {
         date += '/' + localStorage.getItem('slider_year');
 
         this.dates = date;
-        localStorage.setItem('dates', this.dates);
-        console.log(this.dates);
     }
 
     changeTheEnteredDateLabel_RadioButtons(){
@@ -176,12 +138,9 @@ class Result {
                 answer2 = 'notEvaluated';
             }
         }
-
+        
         this.answers = answer1;
         this.answers = answer2;
-        
-        console.log(answer1);
-        console.log(answer2);
     }
 
     printAllTheData() {
@@ -195,21 +154,57 @@ class Result {
         console.log(this.answers);
     }
 
-    get userId() { return this.userId; }
-    get userAge() { return this.userAge; }
-    get userGender() { return this.userGender; }
-    get times( ) { return this.times; }
-    get elementTracking() { return this.elementTracking; }
-    get dates() { return this.dates; }
-    get answers() {  return this.answers; }
+    get userId() { return localStorage.getItem('userId'); }
+    get userAge() { return localStorage.getItem('userAge'); }
+    get userGender() { return localStorage.getItem('userGender'); }
+    get times( ) { return localStorage.getItem('times'); }
+    get elementTracking() { return localStorage.getItem('elementTracking'); }
+    get dates() { return localStorage.getItem('dates'); }
+    get answers() {  return localStorage.getItem('answers'); }
 
-    set userId( newUserId ) { this.userId = newUserId; }
-    set userAge( newUserAge ) { this.userAge = newUserAge; }
-    set userGender( newUserGender ) { this.userGender = newUserGender; }
-    set times( timeValue ) { this.times.push(timeValue); }
-    set elementTracking( elementValue ) { this.elementTracking.push(elementValue); }
-    set dates( newDate ) { this.dates.push(newDate); } 
-    set answers( newAnswer ) { this.answers.push(newAnswer); }
+    set userId( newUserId ) { localStorage.setItem('userId', newUserId); console.log(newUserId);}
+    set userAge( newUserAge ) { localStorage.setItem('userAge', newUserAge); console.log(newUserAge); }
+    set userGender( newUserGender ) { localStorage.setItem('userGender', newUserGender); console.log(newUserGender); }
+
+    set times( timeValue ) { 
+        var newTimes = this.times;
+        if(newTimes == '')
+            newTimes = timeValue;
+        else
+            newTimes += ',' + timeValue;
+        localStorage.setItem('times', newTimes);
+        console.log(timeValue);
+     }
+
+    set elementTracking( elementValue ) { 
+        var newElements = this.elementTracking;
+        if(newElements == '')
+            newElements = elementValue;
+        else
+            newElements += ',' + elementValue;
+        localStorage.setItem('elementTracking', newElements);
+        console.log(elementValue);
+    }
+
+    set dates( newDate ) { 
+        var newDates = this.dates;
+        if(newDates == '')
+            newDates = newDate;
+        else
+            newDates += ',' + newDate;
+        localStorage.setItem('dates', newDates);
+        console.log(newDate);
+    } 
+
+    set answers( newAnswer ) { 
+        var newAnswers = this.answers;
+        if(newAnswers == '')
+            newAnswers = newAnswer;
+        else
+            newAnswers += ',' + newAnswer;
+        localStorage.setItem('answers', newAnswers);
+        console.log(newAnswer);
+    }
 
 }
 
