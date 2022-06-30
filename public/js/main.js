@@ -192,64 +192,13 @@ class Result {
         console.log(this.elementTracking);
         console.log(this.dates);
         console.log(this.answers);
+    }
+
+    getAllTheData(){
 
         const user = new UserData(this.userId, this.userAge, this.userGender, this.times, this.elementTracking, this.dates, this.answers);
 
-        this.addData(user).then(console.log("Data added"));
-
-
-        //uploadToDatabase.uploadToDatabase(user);
-    }
-
-    async addData(user){
-        const firebaseConfig = {
-
-            projectId: "research-prototype-22",
-            appId: "1:551766409520:web:493f25acf035234a9d88f5",
-            databaseURL: "https://research-prototype-22-default-rtdb.europe-west1.firebasedatabase.app",
-            storageBucket: "research-prototype-22.appspot.com",
-            locationId: "europe-west",
-            apiKey: "AIzaSyCCSg686MIwY4jJz7UNFx6PMNZ_LwOG7zk",
-            authDomain: "research-prototype-22.firebaseapp.com",
-            messagingSenderId: "551766409520"
-
-        };
-
-        const app = initializeApp(firebaseConfig);
-
-        const database = getFirestore(app);
-
-        const dataCollection = collection(database, "experimentData");
-
-        await setDoc(doc(database, "cities", "LA"), {
-            name: "Los Angeles",
-            state: "CA",
-            country: "USA"
-        });
-
-        /*try {
-            const docsSnap = await getDocs(dataCollection);
-            docsSnap.forEach(doc => {
-                console.log(doc.data());
-                console.log(doc.id);
-            })
-        } catch (error) {
-            console.log(error);
-        }*/
-
-        // try {
-        //     await getDocs(dataCollection).then((docs) => console.log(docs));
-        // } catch (e){
-        //     console.error("Error getting document: ", e);
-        // }
-        //
-        // try {
-        //     await addDoc(dataCollection, {
-        //         ...user
-        //     }).then(console.log("Connection worked"));
-        // } catch (e){
-        //     console.error("Error adding document: ", e);
-        // }
+        return user;
     }
 
     get userId() { return localStorage.getItem('userId'); }

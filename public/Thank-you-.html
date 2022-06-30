@@ -24,7 +24,54 @@
     <meta property="og:description" content="">
     <meta property="og:type" content="website">
   </head>
-  <body class="u-body u-xl-mode"><header class="u-clearfix u-header u-header" id="sec-06d7"><div class="u-clearfix u-sheet u-sheet-1"></div></header> 
+  <body class="u-body u-xl-mode">
+
+  <script type="module">
+
+      // Import the functions you need from the SDKs you need
+
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
+      import {collection, getFirestore, addDoc, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
+      import "./js/main.js"
+      // Your web app's Firebase configuration
+
+      const firebaseConfig = {
+
+          apiKey: "AIzaSyCCSg686MIwY4jJz7UNFx6PMNZ_LwOG7zk",
+
+          authDomain: "research-prototype-22.firebaseapp.com",
+
+          projectId: "research-prototype-22",
+
+          storageBucket: "research-prototype-22.appspot.com",
+
+          messagingSenderId: "551766409520",
+
+          appId: "1:551766409520:web:493f25acf035234a9d88f5"
+
+      };
+
+
+      // Initialize Firebase
+
+      const app = initializeApp(firebaseConfig);
+
+      const database = getFirestore(app);
+
+      const data = userResult.getAllTheData();
+
+      try {
+          const docRef = await addDoc(collection(database, "experimentData"), {
+                ...data
+          });
+          console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+          console.error("Error adding document: ", e);
+      }
+
+  </script>
+
+  <header class="u-clearfix u-header u-header" id="sec-06d7"><div class="u-clearfix u-sheet u-sheet-1"></div></header>
     <section class="u-align-center u-clearfix u-section-1" id="carousel_1a16">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-expanded-width u-list u-list-1">
