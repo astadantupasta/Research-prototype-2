@@ -37,7 +37,7 @@ class Result {
     saveUserData(){
         this.userAge = parseInt(document.getElementById("ageInput").value);
         this.userGender = document.getElementById("genderInput").value;
-        this.userId = 'U' + Date.now();
+      //  this.userId = 'U' + Date.now();
     }
 
     saveTheCurrentTime(elementTracker) {

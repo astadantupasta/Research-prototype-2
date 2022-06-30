@@ -3,11 +3,16 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ4GEM2KRK"></script>
 <script>
+  var id = 'U' + Date.now();
+  localStorage.setItem('userId', id);
+
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-FJ4GEM2KRK');
+  gtag('config', 'G-FJ4GEM2KRK', {
+    'user_id': localStorage.getItem('userId')
+  });
 </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
