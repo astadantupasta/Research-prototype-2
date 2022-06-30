@@ -1,15 +1,5 @@
-import { getDatabase, ref, set } from "firebase/database";
-import {collection, getFirestore, addDoc } from "firebase/firestore";
+import {collection, getFirestore, addDoc } from "https://www.gstatic.com/firebasejs/9.1.1/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
-
-function writeUserData(userId, name, email, imageUrl) {
-    const db = getDatabase();
-    set(ref(db, 'users/' + userId), {
-        username: name,
-        email: email,
-        profile_picture : imageUrl
-    });
-}
 
 class UserData{
 
