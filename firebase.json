@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "researchprototype",
     "public": "public",
     "ignore": [
       "firebase.json",
