@@ -68,6 +68,11 @@
           </div>
 
             <script>
+
+                localStorage.setItem('slider_day', "15");
+                localStorage.setItem('slider_month', "6");
+                localStorage.setItem('slider_year', "2000");
+
               RotatingSlider($("#rotating-slider1"), {min: 1, max: 31, step: 1}, 15).setChangeCallback(function (val) {
                 console.log(val);
                 localStorage.setItem('slider_day', val);

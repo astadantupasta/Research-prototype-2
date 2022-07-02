@@ -23,21 +23,28 @@ class Result {
 
     }
 
-
-    initialiseData() {
-        localStorage.clear();
-        localStorage.setItem('userAge', 0);
-        localStorage.setItem('userGender', '');
-        localStorage.setItem('times', ['']);
-        localStorage.setItem('elementTracking', ['']);
-        localStorage.setItem('dates', ['']);
-        localStorage.setItem('answers', ['']);
-    }
-
     saveUserData(){
+
+        localStorage.clear();
+        this.times = [];
+        this.elementTracking = [];
+        this.dates = [];
+        this.answers = [];
+
         this.userAge = parseInt(document.getElementById("ageInput").value);
         this.userGender = document.getElementById("genderInput").value;
-      //  this.userId = 'U' + Date.now();
+
+        // TEMPORARY
+        var id = 'U' + Date.now();
+        localStorage.setItem('userId', id);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-FJ4GEM2KRK', {
+            'user_id': localStorage.getItem('userId')
+        });
     }
 
     saveTheCurrentTime(elementTracker) {
@@ -67,63 +74,73 @@ class Result {
     }
 
     saveTheEnteredDate_RadioButtonsDay() {
-        try{
-            localStorage.setItem('day', document.querySelector('input[name="day"]:checked').value);
-        }
-        catch(e){
-            if(e instanceof TypeError){
-            } else {
-                console.log(e);
-            }
-        }
 
-        var page = window.location.pathname.split("/").pop();
-        if(page == 'Radio-buttons-day-1.html') {
-            window.location.replace('Radio-buttons-month-1.html');           
-        } else if (page == 'Radio-buttons-day-2.html') {
-            window.location.replace('Radio-buttons-month-2.html');
-        } else {
-            window.location.replace('Radio-buttons-month-3.html');
+        if(document.querySelector('input[name="day"]:checked') != null && document.querySelector('input[name="day"]:checked') != undefined) {
+            try {
+                localStorage.setItem('day', document.querySelector('input[name="day"]:checked').value);
+            } catch (e) {
+                if (e instanceof TypeError) {
+                } else {
+                    console.log(e);
+                }
+            }
+
+            var page = window.location.pathname.split("/").pop();
+            if (page == 'Radio-buttons-day-1.html') {
+                window.location.replace('Radio-buttons-month-1.html');
+            } else if (page == 'Radio-buttons-day-2.html') {
+                window.location.replace('Radio-buttons-month-2.html');
+            } else {
+                window.location.replace('Radio-buttons-month-3.html');
+            }
         }
     }
 
     saveTheEnteredDate_RadioButtonsMonth() {
-        try{
-            localStorage.setItem('month', document.querySelector('input[name="month"]:checked').value);
-        }
-        catch(e){
-            if(e instanceof TypeError){
 
-            }else{
-                console.log(e);
+        if(document.querySelector('input[name="month"]:checked') != null && document.querySelector('input[name="month"]:checked') != undefined) {
+
+            try {
+                localStorage.setItem('month', document.querySelector('input[name="month"]:checked').value);
+            } catch (e) {
+                if (e instanceof TypeError) {
+
+                } else {
+                    console.log(e);
+                }
             }
-        }
 
 
-        var page = window.location.pathname.split("/").pop();
-        if(page == 'Radio-buttons-month-1.html') {
-            window.location.replace('Radio-buttons-year-1.html');           
-        } else if (page == 'Radio-buttons-month-2.html') {
-            window.location.replace('Radio-buttons-year-2.html');
-        } else {
-            window.location.replace('Radio-buttons-year-3.html');
+            var page = window.location.pathname.split("/").pop();
+            if (page == 'Radio-buttons-month-1.html') {
+                window.location.replace('Radio-buttons-year-1.html');
+            } else if (page == 'Radio-buttons-month-2.html') {
+                window.location.replace('Radio-buttons-year-2.html');
+            } else {
+                window.location.replace('Radio-buttons-year-3.html');
+            }
+
         }
     }
 
     saveTheEnteredDate_RadioButtonsYear() {
-        var date = '';
-        try {
-            date = localStorage.getItem('day') + '/' + 
-            localStorage.getItem('month') + '/' + document.querySelector('input[name="year"]:checked').value;
 
-            this.dates = date;
-        }
-        catch(e){
-            if(e instanceof TypeError){
+        if(document.querySelector('input[name="year"]:checked') != null && document.querySelector('input[name="year"]:checked') != undefined) {
 
-            }else{
-                console.log(e);
+            var date = '';
+            try {
+                date = localStorage.getItem('day') + '/' +
+                    localStorage.getItem('month') + '/' + document.querySelector('input[name="year"]:checked').value;
+
+                this.dates = date;
+            } catch (e) {
+                if (e instanceof TypeError) {
+
+                } else {
+                    console.log(e);
+                }
             }
+
         }
     }
 
@@ -213,9 +230,9 @@ class Result {
     set userAge( newUserAge ) { localStorage.setItem('userAge', newUserAge); console.log(newUserAge); }
     set userGender( newUserGender ) { localStorage.setItem('userGender', newUserGender); console.log(newUserGender); }
 
-    set times( timeValue ) { 
+    set times( timeValue ) {
         var newTimes = this.times;
-        if(newTimes == '')
+        if(newTimes == '' || (this.times == null || this.times == undefined))
             newTimes = timeValue;
         else
             newTimes += ',' + timeValue;
@@ -223,9 +240,9 @@ class Result {
         console.log(timeValue);
      }
 
-    set elementTracking( elementValue ) { 
+    set elementTracking( elementValue ) {
         var newElements = this.elementTracking;
-        if(newElements == '')
+        if(newElements == '' || (this.elementTracking == null || this.elementTracking == undefined))
             newElements = elementValue;
         else
             newElements += ',' + elementValue;
@@ -233,9 +250,9 @@ class Result {
         console.log(elementValue);
     }
 
-    set dates( newDate ) { 
+    set dates( newDate ) {
         var newDates = this.dates;
-        if(newDates == '')
+        if(newDates == '' || (this.dates == null || this.dates == undefined))
             newDates = newDate;
         else
             newDates += ',' + newDate;
@@ -243,9 +260,9 @@ class Result {
         console.log(newDate);
     } 
 
-    set answers( newAnswer ) { 
+    set answers( newAnswer ) {
         var newAnswers = this.answers;
-        if(newAnswers == '')
+        if(newAnswers == '' || (this.answers == null || this.answers == undefined))
             newAnswers = newAnswer;
         else
             newAnswers += ',' + newAnswer;
