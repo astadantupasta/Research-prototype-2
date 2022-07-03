@@ -5,7 +5,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase
 
 export class UserData{
 
-    constructor(userId, userAge, userGender, times, elementTracking, dates, answers) {
+    constructor(userId, userAge, userGender, times, elementTracking, dates, answers, userAgent) {
 
         this.userId = userId;
         this.userAge = userAge;
@@ -14,6 +14,7 @@ export class UserData{
         this.elementTracking = elementTracking;
         this.dates = dates;
         this.answers = answers;
+        this.userAgent = userAgent;
     }
 }
 
@@ -30,6 +31,7 @@ class Result {
         this.elementTracking = [];
         this.dates = [];
         this.answers = [];
+        this.userAgent = navigator.userAgent;
 
         this.userAge = parseInt(document.getElementById("ageInput").value);
         this.userGender = document.getElementById("genderInput").value;
@@ -213,7 +215,7 @@ class Result {
 
     getAllTheData(){
 
-        const user = new UserData(this.userId, this.userAge, this.userGender, this.times, this.elementTracking, this.dates, this.answers);
+        const user = new UserData(this.userId, this.userAge, this.userGender, this.times, this.elementTracking, this.dates, this.answers, this.userAgent);
 
         return user;
     }
@@ -225,10 +227,12 @@ class Result {
     get elementTracking() { return localStorage.getItem('elementTracking'); }
     get dates() { return localStorage.getItem('dates'); }
     get answers() {  return localStorage.getItem('answers'); }
+    get userAgent() { return localStorage.getItem('userAgent'); }
 
     set userId( newUserId ) { localStorage.setItem('userId', newUserId); console.log(newUserId);}
     set userAge( newUserAge ) { localStorage.setItem('userAge', newUserAge); console.log(newUserAge); }
     set userGender( newUserGender ) { localStorage.setItem('userGender', newUserGender); console.log(newUserGender); }
+    set userAgent( newUserAgent ) { localStorage.setItem('userAgent', newUserAgent); console.log(newUserAgent); }
 
     set times( timeValue ) {
         var newTimes = this.times;
