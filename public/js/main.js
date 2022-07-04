@@ -222,7 +222,10 @@ class Result {
 
     copyInfoToClipboard() {
         var text = 'https://researchprototype.web.app/';
-        navigator.clipboard.writeText(text);
+        if(navigator && navigator.clipboard && navigator.clipboard.writeText)
+            navigator.clipboard.writeText(text);
+        else
+            Promise.reject('The Clipboard API is not available.');
 
         var tooltip = document.getElementById('myTooltip');
         tooltip.innerHTML = 'Copied!';
