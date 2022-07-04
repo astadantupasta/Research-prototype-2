@@ -229,6 +229,8 @@ class Result {
 
         var tooltip = document.getElementById('myTooltip');
         tooltip.innerHTML = 'Copied!';
+
+        console.log('nanana');
     }
 
     copyInfoToClipboardOutFunc(){
