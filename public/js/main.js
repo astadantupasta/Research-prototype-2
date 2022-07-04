@@ -220,6 +220,19 @@ class Result {
         return user;
     }
 
+    copyInfoToClipboard() {
+        var text = 'https://researchprototype.web.app/';
+        navigator.clipboard.writeText(text);
+
+        var tooltip = document.getElementById('myTooltip');
+        tooltip.innerHTML = 'Copied!';
+    }
+
+    copyInfoToClipboardOutFunc(){
+        var tooltip = document.getElementById("myTooltip");
+        tooltip.innerHTML = "Copy to clipboard";
+    }
+
     get userId() { return localStorage.getItem('userId'); }
     get userAge() { return localStorage.getItem('userAge'); }
     get userGender() { return localStorage.getItem('userGender'); }
