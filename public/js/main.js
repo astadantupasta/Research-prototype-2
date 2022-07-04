@@ -223,14 +223,13 @@ class Result {
     copyInfoToClipboard() {
         var text = 'https://researchprototype.web.app/';
         if(navigator && navigator.clipboard && navigator.clipboard.writeText)
-            navigator.clipboard.writeText(text);
+            navigator.clipboard.writeText(text).then(function(x) {alert("Link copied to clipboard!");});
         else
             Promise.reject('The Clipboard API is not available.');
 
-        var tooltip = document.getElementById('myTooltip');
-        tooltip.innerHTML = 'Copied!';
+      //  var tooltip = document.getElementById('myTooltip');
+     //   tooltip.innerHTML = 'Copied!';
 
-        console.log('nanana');
     }
 
     copyInfoToClipboardOutFunc(){
