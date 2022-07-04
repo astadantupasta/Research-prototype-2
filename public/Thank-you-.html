@@ -76,10 +76,16 @@
           const docRef = await addDoc(collection(database, "experimentData"), {
                 ...data
           });
+
+          document.getElementById("dataSent").textContent = "Your submission was received.";
+
           console.log("Document written with ID: ", docRef.id);
+
       } catch (e) {
           console.error("Error adding document: ", e);
       }
+
+
 
   </script>
 
@@ -95,7 +101,7 @@
               <div class="u-align-center u-container-style u-layout-cell u-size-60 u-layout-cell-1" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500">
                 <div class="u-container-layout u-container-layout-1">
                   <h2 class="u-text u-text-1" data-animation-name="customAnimationIn" data-animation-duration="1750" data-animation-delay="500">Thank you!</h2>
-                  <p class="u-large-text u-text u-text-variant u-text-2">Your submission was received.</p>
+                  <p class="u-large-text u-text u-text-variant u-text-2" id="dataSent">The data is being sent, please, do not close this page.</p>
                 
                   <p class="u-align-center-xs u-large-text u-text u-text-default-lg u-text-default-md u-text-default-sm u-text-default-xl u-text-variant u-text-3">Please, help us and share the experiment!</p>
                   <div class="u-social-icons u-spacing-10 u-social-icons-1">
