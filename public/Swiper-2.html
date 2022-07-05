@@ -55,15 +55,15 @@
 
             <div class="demo">
               <h1>Day</h1>
-              <h2 id="rotating-slider1" onclick="userResult.saveTheCurrentTime('II swipper-day');userResult.enableLink(document.getElementById('swiper-II-button'))"/>
+              <h2 id="rotating-slider1"/>
             </div>
             <div class="demo">
               <h1>Month</h1>
-              <h2 id="rotating-slider2" onclick="userResult.saveTheCurrentTime('II swipper-month');userResult.enableLink(document.getElementById('swiper-II-button'))"/>
+              <h2 id="rotating-slider2"/>
             </div>
             <div class="demo">
               <h1>Year</h1>
-              <h2 id="rotating-slider3" onclick="userResult.saveTheCurrentTime('II swipper-year');userResult.enableLink(document.getElementById('swiper-II-button'))"/>
+              <h2 id="rotating-slider3"/>
             </div>
           </div>
 
@@ -78,21 +78,21 @@
                   localStorage.setItem('slider_day', val);
 
                   userResult.enableLink(document.getElementById('swiper-II-button'));
-                  userResult.saveTheCurrentTimeSwiper('II swipper-day',val,16)
+                  userResult.saveTheCurrentTime('II swipper')
               });
               RotatingSlider($("#rotating-slider2"), {min: 1, max: 12, step: 1}, 6).setChangeCallback(function (val) {
                   console.log(val);
                   localStorage.setItem('slider_month', val);
 
                   userResult.enableLink(document.getElementById('swiper-II-button'));
-                  userResult.saveTheCurrentTimeSwiper('II swipper-month',val,5)
+                  userResult.saveTheCurrentTime('II swipper')
               });
               RotatingSlider($("#rotating-slider3"), {min: 1900, max: 2022, step: 1}, 2000).setChangeCallback(function (val) {
                   console.log(val);
                   localStorage.setItem('slider_year', val);
 
                   userResult.enableLink(document.getElementById('swiper-II-button'));
-                  userResult.saveTheCurrentTimeSwiper('II swipper-year',val,1998)
+                  userResult.saveTheCurrentTime('II swipper')
               });
           </script>
 
