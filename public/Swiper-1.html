@@ -78,21 +78,21 @@
                 localStorage.setItem('slider_day', val);
 
                 userResult.enableLink(document.getElementById('swiper-I-button'));
-                userResult.saveTheCurrentTimeSwiper('I swipper-day',val,5)
+                userResult.saveTheCurrentTime('I swipper');
               });
               RotatingSlider($("#rotating-slider2"), {min: 1, max: 12, step: 1}, 6).setChangeCallback(function (val) {
                 console.log(val);
                 localStorage.setItem('slider_month', val);
 
                 userResult.enableLink(document.getElementById('swiper-I-button'));
-                userResult.saveTheCurrentTimeSwiper('I swipper-month',val,3)
+                userResult.saveTheCurrentTime('I swipper');
               });
               RotatingSlider($("#rotating-slider3"), {min: 1900, max: 2022, step: 1}, 2000).setChangeCallback(function (val) {
                 console.log(val);
                 localStorage.setItem('slider_year', val);
 
                 userResult.enableLink(document.getElementById('swiper-I-button'));
-                userResult.saveTheCurrentTimeSwiper('I swipper-year',val,2022)
+                userResult.saveTheCurrentTime('I swipper');
               });
             </script>
 

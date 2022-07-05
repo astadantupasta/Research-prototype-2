@@ -31,6 +31,8 @@ class Result {
         this.elementTracking = [];
         this.dates = [];
         this.answers = [];
+        this.temporaryTime = '';
+        this.temporaryElementName = '';
         this.userAgent = navigator.userAgent;
 
         this.userAge = parseInt(document.getElementById("ageInput").value);
@@ -50,21 +52,27 @@ class Result {
     }
 
     saveTheCurrentTime(elementTracker) {
+        this.temporaryTime = Date.now();
+        this.temporaryElementName = elementTracker;
 
-        this.times = Date.now();
-        this.elementTracking = elementTracker;
     }
 
-    saveTheCurrentTimeSwiper(elementTracker, value, correctValue) {
+    saveThePeriodOfTime() {
+        var arrayOfStrings = this.temporaryTime.split(',');
+        var arrayOfNums =  [];
 
-        if(value == correctValue) {
-            this.times = Date.now();
-            this.elementTracking = elementTracker;
-        } else {
-            this.times = Date.now();
-            this.elementTracking = 'INVALID:' + elementTracker;
-        }
+        // Converting array of strings to the array of numbers
+        arrayOfStrings.forEach(str => {
+          arrayOfNums.push(Number(str));
+        });
 
+        var periodOfTime = arrayOfNums[arrayOfNums.length-1] - arrayOfNums[0];
+        this.times = periodOfTime;
+        this.elementTracking = this.temporaryElementName;
+
+        // Cleaning the temporary values
+        localStorage.setItem('temporaryTime', '');
+        this.temporaryElementName = '';
     }
 
     saveTheEnteredDate_DropDown() {
@@ -73,6 +81,8 @@ class Result {
         date += '/' + document.getElementById('yearInput').value;
 
         this.dates = date;
+
+        this.saveThePeriodOfTime();
     }
 
     saveTheEnteredDate_RadioButtonsDay() {
@@ -144,6 +154,7 @@ class Result {
             }
 
         }
+        this.saveThePeriodOfTime();
     }
 
     saveTheEnteredDate_Swiper(){
@@ -152,6 +163,7 @@ class Result {
         date += '/' + localStorage.getItem('slider_year');
 
         this.dates = date;
+        this.saveThePeriodOfTime();
     }
 
     changeTheEnteredDateLabel_RadioButtons(){
@@ -226,15 +238,6 @@ class Result {
             navigator.clipboard.writeText(text).then(function(x) {alert("Link copied to clipboard!");});
         else
             Promise.reject('The Clipboard API is not available.');
-
-      //  var tooltip = document.getElementById('myTooltip');
-     //   tooltip.innerHTML = 'Copied!';
-
-    }
-
-    copyInfoToClipboardOutFunc(){
-        var tooltip = document.getElementById("myTooltip");
-        tooltip.innerHTML = "Copy to clipboard";
     }
 
     get userId() { return localStorage.getItem('userId'); }
@@ -245,11 +248,14 @@ class Result {
     get dates() { return localStorage.getItem('dates'); }
     get answers() {  return localStorage.getItem('answers'); }
     get userAgent() { return localStorage.getItem('userAgent'); }
+    get temporaryTime() { return localStorage.getItem('temporaryTime'); }
+    get temporaryElementName() { return localStorage.getItem('temporaryElementName'); }
 
     set userId( newUserId ) { localStorage.setItem('userId', newUserId); console.log(newUserId);}
     set userAge( newUserAge ) { localStorage.setItem('userAge', newUserAge); console.log(newUserAge); }
     set userGender( newUserGender ) { localStorage.setItem('userGender', newUserGender); console.log(newUserGender); }
     set userAgent( newUserAgent ) { localStorage.setItem('userAgent', newUserAgent); console.log(newUserAgent); }
+    set temporaryElementName( newtemporaryElementName ) { localStorage.setItem('temporaryElementName', newtemporaryElementName); console.log(newtemporaryElementName); }
 
     set times( timeValue ) {
         var newTimes = this.times;
@@ -289,6 +295,17 @@ class Result {
             newAnswers += ',' + newAnswer;
         localStorage.setItem('answers', newAnswers);
         console.log(newAnswer);
+    }
+
+    set temporaryTime( newtemporaryTime ) {
+        var newTemporaries = this.temporaryTime;
+        if(newTemporaries == '' || (this.temporaryTime == null || this.temporaryTime == undefined))
+            newTemporaries = newtemporaryTime;
+        else
+            newTemporaries += ',' + newtemporaryTime;
+
+        localStorage.setItem('temporaryTime', newTemporaries);
+        console.log(newtemporaryTime);
     }
 
 }
