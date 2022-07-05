@@ -37,7 +37,7 @@ class Result {
         this.userGender = document.getElementById("genderInput").value;
 
         // TEMPORARY
-        var id = 'U' + Date.now();
+        var id = 'T' + Date.now();
         localStorage.setItem('userId', id);
 
         window.dataLayer = window.dataLayer || [];
@@ -158,6 +158,38 @@ class Result {
         try{
             var value = document.querySelector('input[name="year"]:checked').value;
             document.getElementById('radioButtonsDateLabel').innerHTML = '03/05/' + value;            
+        }
+        catch(e){
+            if(e instanceof TypeError){
+
+            }else
+            {
+                console.log(e);
+            }
+        }
+
+    }
+
+    changeTheEnteredDateLabel_RadioButtons2(){
+        try{
+            var value = document.querySelector('input[name="year"]:checked').value;
+            document.getElementById('radioButtonsDateLabel').innerHTML = '16/05/' + value;
+        }
+        catch(e){
+            if(e instanceof TypeError){
+
+            }else
+            {
+                console.log(e);
+            }
+        }
+
+    }
+
+    changeTheEnteredDateLabel_RadioButtons3(){
+        try{
+            var value = document.querySelector('input[name="year"]:checked').value;
+            document.getElementById('radioButtonsDateLabel').innerHTML = '20/06/' + value;
         }
         catch(e){
             if(e instanceof TypeError){
