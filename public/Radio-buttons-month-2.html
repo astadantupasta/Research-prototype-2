@@ -31,6 +31,7 @@
 		"@type": "Organization",
 		"name": "Site1"
 }</script>
+
     <meta name="theme-color" content="#ab4ec7">
     <meta property="og:title" content="Radio buttons-month-1">
     <meta property="og:description" content="">
@@ -50,10 +51,8 @@
         </div>
         <div class="u-container-style u-expanded-width-xs u-group u-group-2">
           <div class="u-container-layout u-container-layout-2">
-            <h2 id="radioButtonsDateLabel2" class="u-subtitle u-text u-text-default u-text-3">
-              <span class="u-text-palette-5-dark-3">16</span>
-              <span class="u-text-palette-5-dark-3">/</span>
-              <span class="u-text-palette-5-dark-3">**</span>/<span class="u-text-palette-5-light-1">****</span>
+            <h2 id="radioButtonsDateLabel" class="u-subtitle u-text u-text-default u-text-3">
+              <span class="u-text-palette-5-dark-3">**/**/****</span>
             </h2>
             <p class="u-large-text u-text u-text-default u-text-variant u-text-4">Month</p>
           
@@ -112,7 +111,9 @@
         </div>
       </div>
     </section>
-
+    <script>
+      window.onload = function() { userResult.changeTheEnteredDateLabel_RadioButtons(); };
+    </script>
     <script src="js/plugins.js"></script>
     <script type="module" src="js/main.js"></script>
   

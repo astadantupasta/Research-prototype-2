@@ -38,6 +38,10 @@ class Result {
         this.userAge = parseInt(document.getElementById("ageInput").value);
         this.userGender = document.getElementById("genderInput").value;
 
+        localStorage.setItem('day', '**');
+        localStorage.setItem('month', '**');
+        localStorage.setItem('year', '****');
+
         // TEMPORARY
         var id = 'T' + Date.now();
         localStorage.setItem('userId', id);
@@ -135,8 +139,29 @@ class Result {
         }
     }
 
-    saveTheEnteredDate_RadioButtonsYear() {
+    saveTheEnteredDate_RadioButtonsYear_Temporary() {
 
+        if(document.querySelector('input[name="year"]:checked') != null && document.querySelector('input[name="year"]:checked') != undefined) {
+
+            try {
+                var year = document.querySelector('input[name="year"]:checked').value;
+                localStorage.setItem('year', year);
+                console.log('year');
+                console.log(year);
+            } catch (e) {
+                if (e instanceof TypeError) {
+
+                } else {
+                    console.log(e);
+                }
+            }
+
+        }
+
+        this.changeTheEnteredDateLabel_RadioButtons();
+    }
+
+    saveTheEnteredDate_RadioButtonsYear() {
         if(document.querySelector('input[name="year"]:checked') != null && document.querySelector('input[name="year"]:checked') != undefined) {
 
             var date = '';
@@ -152,9 +177,11 @@ class Result {
                     console.log(e);
                 }
             }
-
         }
         this.saveThePeriodOfTime();
+        localStorage.setItem('day', '**');
+        localStorage.setItem('month', '**');
+        localStorage.setItem('year', '****');
     }
 
     saveTheEnteredDate_Swiper(){
@@ -167,19 +194,50 @@ class Result {
     }
 
     changeTheEnteredDateLabel_RadioButtons(){
-        try{
-            var value = document.querySelector('input[name="year"]:checked').value;
-            document.getElementById('radioButtonsDateLabel').innerHTML = '03/05/' + value;            
-        }
-        catch(e){
-            if(e instanceof TypeError){
-
-            }else
-            {
-                console.log(e);
+            var day='**', month='**', year='****';
+            try {
+                day = localStorage.getItem('day');
+                if(day == null || day == undefined)
+                    day = '**';
             }
-        }
+            catch(e) {
+                if(e instanceof TypeError){
+                    day = '**';
+                }
+                else {
+                    console.log(e);
+                }
+            }
 
+            try {
+                month = localStorage.getItem('month');
+            }
+            catch(e) {
+                if(e instanceof TypeError){
+                    month = '**';
+                    if(month == null || month == undefined)
+                        month = '**';
+                }
+                else {
+                    console.log(e);
+                }
+            }
+
+            try {
+                year = localStorage.getItem('year');
+                if(year == null || year == undefined)
+                    year = '****';
+            }
+            catch(e) {
+                if(e instanceof TypeError){
+                    year = '****';
+                }
+                else {
+                    console.log(e);
+                }
+            }
+
+            document.getElementById('radioButtonsDateLabel').innerHTML = day + '/' + month + '/' +  year;          
     }
 
     changeTheEnteredDateLabel_RadioButtons2(){
