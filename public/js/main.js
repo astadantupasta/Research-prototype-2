@@ -240,38 +240,6 @@ class Result {
             document.getElementById('radioButtonsDateLabel').innerHTML = day + '/' + month + '/' +  year;          
     }
 
-    changeTheEnteredDateLabel_RadioButtons2(){
-        try{
-            var value = document.querySelector('input[name="year"]:checked').value;
-            document.getElementById('radioButtonsDateLabel').innerHTML = '16/05/' + value;
-        }
-        catch(e){
-            if(e instanceof TypeError){
-
-            }else
-            {
-                console.log(e);
-            }
-        }
-
-    }
-
-    changeTheEnteredDateLabel_RadioButtons3(){
-        try{
-            var value = document.querySelector('input[name="year"]:checked').value;
-            document.getElementById('radioButtonsDateLabel').innerHTML = '20/06/' + value;
-        }
-        catch(e){
-            if(e instanceof TypeError){
-
-            }else
-            {
-                console.log(e);
-            }
-        }
-
-    }
-
     saveTheAnswers() {
         var answer1, answer2;
         try {
