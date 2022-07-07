@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="en"><head>
+<html style="font-size: 16px;" lang="lt"><head>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FJ4GEM2KRK"></script>
 <script>
@@ -44,17 +44,16 @@
         </div>
         <div class="u-align-center u-container-style u-expanded-width-xs u-group u-palette-1-base u-radius-10 u-shape-round u-group-1">
           <div class="u-container-layout u-container-layout-1">
-            <p class="u-large-text u-text u-text-variant u-text-1">Enter a given date</p>
-            <h3 class="u-text u-text-2">05 03 2022</h3>
+            <p class="u-large-text u-text u-text-variant u-text-1">Įveskite datą</p>
+            <h3 class="u-text u-text-2">2022 03 05</h3>
           </div>
         </div>
         <div class="u-container-style u-expanded-width-xs u-group u-group-2">
-          <div class="u-container-layout u-container-layout-2">
-            <h2 id="radioButtonsDateLabel" class="u-subtitle u-text u-text-default u-text-3">**/<span class="u-text-palette-5-light-1">**</span>/<span class="u-text-palette-5-light-1">****</span>
-            </h2>
-            <p class="u-large-text u-text u-text-default u-text-variant u-text-4">Day</p>
+          <div class="u-container-layout u-expanded-width-xs u-valign-bottom u-container-layout-2">
+            <h2 id="radioButtonsDateLabel" class="u-subtitle u-text u-text-default u-text-3">****-**-**</h2>
+            <p class="u-large-text u-text u-text-default u-text-variant u-text-4">Diena</p>
            
-              <div id="radioButtonsDay" class="radioButtonsDay" onclick="userResult.saveTheEnteredDate_RadioButtonsDay();userResult.saveTheCurrentTime('I radio-buttons')">
+              <div id="radioButtonsDay" class="radioButtonsDay" onclick="userResult.saveTheEnteredDate_RadioButtonsDay_Temporary();userResult.saveTheCurrentTime('I radio-buttons');userResult.enableLink(document.getElementById('radio-buttons-I-button'))">
                 <label>
                   <input name="day" type="radio" value="1">
                   <span>1</span>
@@ -180,11 +179,16 @@
                   <span>31</span>
                 </label>
               </div>
+
+              <a id="radio-buttons-I-button" aria-disabled="true" href="Radio-buttons-year-2.html" onclick="userResult.saveTheEnteredDate_RadioButtonsDay()" class="u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1 u-border-active-palette-3-base u-border-hover-palette-3-base u-border-palette-1-base u-hover-palette-3-base u-palette-1-base">Kitas</a>
            
           </div>
         </div>
       </div>
     </section>
+    <script>
+      window.onload = function() { userResult.changeTheEnteredDateLabel_RadioButtons(); };
+  </script>
     
     <script src="js/plugins.js"></script>
     <script type="module" src="js/main.js"></script>
