@@ -1,0 +1,222 @@
+.u-section-1 .u-sheet-1 {
+  min-height: 734px;
+}
+
+.u-section-1 .u-list-1 {
+  width: 433px;
+  margin: 109px auto 0 348px;
+}
+
+.u-section-1 .u-repeater-1 {
+  grid-gap: 0px 0px;
+}
+
+.u-section-1 .u-group-1 {
+  width: 420px;
+  min-height: 87px;
+  margin: -15px auto 0;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.u-section-1 .u-text-1 {
+  font-style: italic;
+  font-size: 1.25rem;
+  margin: 0 221px 0 0;
+}
+
+.u-section-1 .u-text-2 {
+  margin: 3px 30px 0;
+}
+
+.u-section-1 .u-group-2 {
+  width: 420px;
+  min-height: 238px;
+  margin: 9px auto 60px;
+}
+
+.u-section-1 .u-container-layout-2 {
+  padding: 12px 27px;
+}
+
+.u-section-1 .u-text-3 {
+  font-weight: 400;
+  font-size: 2.25rem;
+  margin: 0 auto;
+}
+
+.u-section-1 .u-text-4 {
+  margin: 11px auto 0 0;
+}
+
+.u-section-1 .u-custom-html-1 {
+  min-height: 91px;
+  width: 366px;
+  margin: 16px 0 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: repeat(undefined, NaN%);
+  }
+
+  .u-section-1 .u-container-layout-1 {
+    padding-bottom: 0;
+  }
+
+  .u-section-1 .u-custom-html-1 {
+    height: auto;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-list-1 {
+    margin-left: 287px;
+  }
+
+  .u-section-1 .u-repeater-1 {
+    grid-template-columns: 100%;
+  }
+
+  .u-section-1 .u-group-2 {
+    margin-top: 3px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-list-1 {
+    margin-left: 107px;
+  }
+
+  .u-section-1 .u-group-2 {
+    min-height: 308px;
+  }
+
+  .u-section-1 .u-container-layout-2 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-text-4 {
+    width: auto;
+    margin-top: 13px;
+  }
+
+  .u-section-1 .u-custom-html-1 {
+    margin-top: 12px;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-sheet-1 {
+    min-height: 626px;
+  }
+
+  .u-section-1 .u-list-1 {
+    margin-top: 75px;
+    height: auto;
+    min-height: 0;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .u-section-1 .u-group-1 {
+    min-height: 80px;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .u-section-1 .u-text-1 {
+    font-size: 1.125rem;
+    width: auto;
+    margin-right: 128px;
+  }
+
+  .u-section-1 .u-text-2 {
+    width: auto;
+    margin-top: 9px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .u-section-1 .u-group-2 {
+    min-height: 242px;
+    margin-top: 0;
+    margin-right: initial;
+    margin-left: initial;
+    width: auto;
+  }
+
+  .u-section-1 .u-text-3 {
+    font-size: 1.875rem;
+  }
+
+  .u-section-1 .u-text-4 {
+    margin-top: 10px;
+  }
+
+  .u-section-1 .u-custom-html-1 {
+    min-height: 122px;
+    width: 320px;
+    margin-top: 13px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}.radioButtonsDay {
+        
+        display: inline-grid;
+        max-width: 900px;
+        grid-auto-rows: 30px;
+        grid-gap: 30px;
+        grid-template-columns: repeat(10, minmax(15px, 200px));
+    }
+    @media only screen and (max-width: 680px) {
+		 .radioButtonsDay {
+    	justify-content: center;
+    	padding: 5px;
+		grid-auto-rows: 15px;
+		grid-template-columns: repeat(7, minmax(15px, 200px));
+	}
+		.radioButtonsDay span {
+   	 	padding: 20px;
+    	font-size: 0.7em;
+	}
+   }
+    .radioButtonsDay input {
+        max-width: 250px;
+        position: fixed;
+        opacity: 0;
+        pointer-events: none;
+    }
+    .radioButtonsDay span {
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        background: #dcdcdc;
+        transition: background .2s ease-in-out;
+    }
+    .radioButtonsDay input:checked + span {
+        outline: black auto 1px;
+        background: transparent;
+    }
+    .radioButtonsDay input:focus + span {
+        outline: -webkit-focus-ring-color auto 1px;
+    }
+    .radioButtonsDay span:hover {
+        background: #f1f1f1;
+        outline: lightgrey auto 0.5px;
+    } 
