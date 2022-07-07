@@ -43,7 +43,7 @@ class Result {
         localStorage.setItem('year', '****');
 
         // TEMPORARY
-        var id = 'ES-Test' + Date.now();
+        var id = 'ES-' + Date.now();
         localStorage.setItem('userId', id);
 
         window.dataLayer = window.dataLayer || [];
