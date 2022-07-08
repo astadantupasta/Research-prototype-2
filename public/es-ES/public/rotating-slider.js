@@ -461,7 +461,7 @@
                         this.stepsToDo -= 1;
                         break;
                     case 0:
-                        this.showInput();
+                        //this.showInput();
                         break;
                     case -1:
                         this.setStableState(false);
